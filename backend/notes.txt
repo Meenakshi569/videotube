@@ -1,0 +1,112 @@
+project initialization
+using dotenv and prettier
+and database connection
+
+
+
+
+there are two ways of connceting database the one is in index.js 
+just like this:
+import mongoose from 'mongoose';
+import {DB_NAME} from "./constants";
+
+import express from "express"
+const app=express()
+
+(async()=>{
+    try{
+        await mongoose.connect('${process.env.MONGODB_URL}/${DB_NAME}')
+        app.on("error", ()=>{
+            console.log("error:",)
+            throw error;
+        })
+        app.listen(process.env.PORT, ()=>{
+            console.log('app is lsitening on port $ {process.env.PORT}');
+        })
+    } catch(error){
+        console.log("error:",error);
+
+        throw err
+    }
+})()
+
+
+the second method is to in using another file in db folder
+using cors
+using cookie parser
+using middleware
+make utils for api arror
+make use model and video model
+use agreegatepaginate in video model
+use bcrypt for storing password in hash
+use jwt for storing tokens
+use cloudinary 
+use mluter as middleware
+
+
+Http crash course
+http=> hyper text transfer protocol
+
+what are http header?
+meta deta --> key-value  (sent along with request and response)
+
+-> used for->
+caching,authentication,manage state
+
+request headers=> from client
+response headers-> from server
+representaion headers -> encoding/compression
+payload headers=> data
+
+most common headers->
+accept: application/json
+user-agreegatepaginateauthorization
+content-type
+cookiecahe-control
+
+
+CORS=>>
+access- control-allow-origin
+access-control-allow-credentials
+access-control-allow-methods
+
+SECURITY-->
+cross-orogin-embedder-policy
+
+HTTP methods=>
+basic set of operations that can be used to interact with server
+
+GET: retreive a resource
+HEAD: No message body (respone headers only)
+OPTIONS: what operations are available
+TRACE:
+loopback test
+DELETE: remove a resource
+PUT: replace a resource
+POST : interact with resource (mostly add)
+PATCH: change part of a resource
+
+HTTP STATUS CODE->
+1xx   informational
+2xx     success
+3xx     redirection
+4xx     client error
+5xx     server error
+
+
+100-continue
+102 - processing
+200-ok
+201
+created
+202-accepted
+307-temporory'redirection
+308-permannent redirect
+
+400-bad request
+401-unauthorized
+402-payment required
+404-not found
+500-internatl server error
+504 gateway timeout++
+
